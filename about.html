@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>About | Syed Nabeel Hussain</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="About Syed Nabeel Hussain - C++, Qt, and Elixir Developer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --primary-dark: #45a049;
+            --primary-light: rgba(76, 175, 80, 0.1);
+            --secondary-color: #2c3e50;
+            --accent-color: #6366f1;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dark: #1e293b;
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --card-bg: #1e293b;
+            --card-hover: #334155;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-primary: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-darker);
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        #header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            padding: 1rem 0.5rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        #header.scrolled {
+            padding: 0.75rem 0.5rem;
+        }
+
+        #header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        #header .logo strong {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        #header .logo i {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+
+        #header nav {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        #header nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        #header nav a:hover {
+            background: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        #header nav a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* About Banner */
+        #about-banner {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            padding: 12rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #about-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/code-bg-pattern.png') repeat;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        #about-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #4ade80, #22d3ee, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        #about-banner p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* About Content */
+        #about-main {
+            padding: 4rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            padding: 0 2rem;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .skills-section {
+            margin-top: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .skill-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-card h3 i {
+            color: var(--primary-color);
+        }
+
+        .skill-card ul {
+            margin: 0;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .skill-card ul li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Footer */
+        #footer {
+            background: var(--bg-dark);
+            padding: 4rem 0 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        #footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #header {
+                padding: 1rem !important;
+            }
+            
+            #header.scrolled {
+                padding: 0.5rem 1rem;
+            }
+            
+            #header nav {
+                gap: 0.5rem;
+            }
+            
+            #header nav a {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.85rem;
+            }
+            
+            #about-banner {
+                padding: 10rem 0 3rem;
+            }
+            
+            #about-banner h1 {
+                font-size: 2.25rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #header .logo {
+                font-size: 1.25rem;
+            }
+            
+            #about-banner h1 {
+                font-size: 2rem;
+            }
+            
+            #about-banner p.subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+<div id="wrapper">
+    <!-- Header -->
+    <header id="header" class="alt">
+        <a href="index.html" class="logo">
+            <i class="fas fa-laptop-code"></i>
+            <span>Syed Nabeel <strong>Hussain</strong></span>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- About Banner -->
+    <section id="about-banner">
+        <div class="inner">
+            <h1>About Me</h1>
+            <p class="subtitle">Passionate developer specializing in C++, Qt, and Elixir</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div id="about-main">
+        <div class="about-content">
+            <h2>Hello, I'm Nabeel</h2>
+            <p>I'm a software developer with a passion for building efficient, scalable applications. My journey in programming began when I wrote my first line of code in C++, and since then I've been fascinated by the power of technology to solve complex problems.</p>
+            
+            <p>With expertise in both system-level programming with C++/Qt and functional programming with Elixir, I bring a unique perspective to software development. I believe in writing clean, maintainable code and following best practices to create robust applications.</p>
+            
+            <p>When I'm not coding, you can find me contributing to open-source projects, learning new technologies, or sharing knowledge with other developers. I'm constantly challenging myself to grow and improve as an engineer.</p>
+            
+            <div class="skills-section">
+                <h2>My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3><i class="fas fa-cogs"></i> C++ Development</h3>
+                        <ul>
+                            <li>Modern C++ (11/14/17)</li>
+                            <li>Object-Oriented Design</li>
+                            <li>Data Structures & Algorithms</li>
+                            <li>Multithreading</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3><i class="fas fa-window-maximize"></i> Qt Framework</h3>
+                        <ul>
+                            <li>Qt Widgets</li>
+                            <li>QML/Qt Quick</li>
+                            <li>Model/View Architecture</li>
+                            <li>Cross-platform Development</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3><i class="fas fa-project-diagram"></i> Elixir</h3>
+                        <ul>
+                            <li>Functional Programming</li>
+                            <li>Phoenix Framework</li>
+                            <li>OTP Principles</li>
+                            <li>Concurrent Systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-links">
+            <a href="https://github.com/snabeelshah" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/syed-nabeel-591579324/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your-email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="#" aria-label="Resume"><i class="fas fa-file-pdf"></i></a>
+        </div>
+        <div class="copyright">
+            &copy; <span id="year"></span> Syed Nabeel Hussain. All rights reserved.
+        </div>
+    </footer>
+</div>
+
+<!-- Scripts -->
+<script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>

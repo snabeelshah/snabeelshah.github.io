@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Syed Nabeel Hussain</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+
+        /* Menu Button Styles */
+.menu-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 255, 195, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 195, 0.2);
+}
+
+.menu-toggle:hover {
+    background: rgba(0, 255, 195, 0.2);
+    transform: scale(1.1);
+}
+
+.menu-toggle span {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: #00ffc3;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span::before,
+.menu-toggle span::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #00ffc3;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span::before {
+    transform: translateY(-6px);
+}
+
+.menu-toggle span::after {
+    transform: translateY(6px);
+}
+
+/* Active state for menu button */
+.menu-toggle.active span {
+    background: transparent;
+}
+
+.menu-toggle.active span::before {
+    transform: rotate(45deg);
+}
+
+.menu-toggle.active span::after {
+    transform: rotate(-45deg);
+}
+
+/* Menu panel styles */
+#menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: rgba(30, 30, 47, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 6rem 2rem;
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#menu.active {
+    right: 0;
+}
+
+#menu .links {
+    list-style: none;
+    padding: 0;
+}
+
+#menu .links li {
+    margin-bottom: 1.5rem;
+}
+
+#menu .links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+#menu .links a:hover {
+    color: #00ffc3;
+    background: rgba(0, 255, 195, 0.1);
+    transform: translateX(10px);
+}
+        /* Skills Section Styling */
+        #skills {
+            background: #1e1e2f;
+            color: #ffffff;
+            padding: 5em 3em;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            color: #00ffc3;
+            animation: fadeInDown 1.2s ease-in-out;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1em;
+        }
+
+        .skill {
+            background-color: #292b3a;
+            padding: 0.75em 1.5em;
+            border-radius: 25px;
+            font-size: 1em;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 255, 195, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Unique Button Styling */
+        .fancy-button {
+            margin-top: 3em;
+            display: inline-block;
+            background: linear-gradient(135deg, #00ffc3 0%, #00b3ff 100%);
+            color: #111;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(0, 255, 195, 0.3);
+        }
+
+        .fancy-button:hover {
+            background: linear-gradient(135deg, #00b3ff 0%, #00ffc3 100%);
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 195, 0.5);
+        }
+
+        /* Menu Button Styles */
+.menu-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 255, 195, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 195, 0.2);
+}
+
+.menu-toggle:hover {
+    background: rgba(0, 255, 195, 0.2);
+    transform: scale(1.1);
+}
+
+.menu-toggle span {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: #00ffc3;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span::before,
+.menu-toggle span::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #00ffc3;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span::before {
+    transform: translateY(-6px);
+}
+
+.menu-toggle span::after {
+    transform: translateY(6px);
+}
+
+/* Active state for menu button */
+.menu-toggle.active span {
+    background: transparent;
+}
+
+.menu-toggle.active span::before {
+    transform: rotate(45deg);
+}
+
+.menu-toggle.active span::after {
+    transform: rotate(-45deg);
+}
+
+
+        /* Typing animation */
+        .typewrite > .wrap {
+            border-right: 0.08em solid #00ffc3;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ffc3 }
+        }
+    </style>
+</head>
+<body class="is-preload dark-theme">
+    <div id="wrapper">
+
+        <header id="header" class="alt">
+            <a href="index.html" class="logo glow-name">
+                <i class="fas fa-code"></i> Syed Nabeel <span style="color:#00ffc3;">Hussain</span>
+            </a>
+            
+        </header>
+
+        <!-- Menu Button -->
+<div class="menu-toggle" id="menuToggle">
+    <span></span>
+</div>
+
+<!-- Menu Panel -->
+
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section with Typing Animation -->
+        <section id="banner" class="major">
+            <div class="inner">
+                <header class="major">
+                    <h1 style="font-size: 2.8em; line-height: 1.3em;">
+                        <span class="glow-text" style="font-weight: 300;">Hi, I'm</span><br />
+                        <span class="highlight typewrite" data-period="2000" data-type='[ "Syed Nabeel Hussain", "a Full-Stack Developer", "a Tech Explorer @ NED University" ]'>
+                            <span class="wrap"></span>
+                        </span>
+                    </h1>
+                </header>
+                <div class="content">
+                    <p class="tagline animated fadeInUp" style="font-size: 1.25em; color: #ccc; max-width: 720px; margin: 0 auto;">
+                        Passionate about building <strong style="color:#00ffc3;">clean code</strong>, intuitive <strong>UI/UX</strong>, and <span style="border-bottom: 2px solid #00ffc3;">solving real-world problems</span> through innovation.
+                    </p>
+                    <ul class="actions stacked" style="margin-top: 2em;">
+                        <li>
+                            <a href="#skills" class="fancy-button smooth" style="font-size: 1.1em; text-transform: uppercase;">
+                                🔍 Explore My Skills
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section with Animated Button -->
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skill-tags">
+                <div class="skill">C / C++</div>
+                <div class="skill">Flutter (Beginner)</div>
+                <div class="skill">HTML & CSS</div>
+                <div class="skill">GitHub & Git</div>
+                <div class="skill">Qt (UI Development)</div>
+                <div class="skill">PostgreSQL</div>
+                <div class="skill">Elixir & Phoenix</div>
+                <div class="skill">JavaScript (Basic)</div>
+                <div class="skill">UI/UX Design Principles</div>
+                <div class="skill">Open Source Collaboration</div>
+            </div>
+            <a href="projects.html" class="fancy-button">Explore My Projects 🚀</a>
+        </section>
+
+        <footer id="footer">
+            <div class="inner">
+                <ul class="icons">
+                    <li><a href="https://github.com/snabeelshah" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/syed-nabeel-591579324/" class="icon brands alt fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; 2025 Syed Nabeel Hussain</li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Typing Animation Script -->
+    <script>
+        class TxtType {
+            constructor(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 2000;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            }
+
+            tick() {
+                let i = this.loopNum % this.toRotate.length;
+                let fullTxt = this.toRotate[i];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+                let that = this;
+                let delta = 150 - Math.random() * 100;
+
+                if (this.isDeleting) { delta /= 2; }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    delta = this.period;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    delta = 500;
+                }
+
+                setTimeout(function () {
+                    that.tick();
+                }, delta);
+            }
+        }
+
+        window.onload = function () {
+            const elements = document.getElementsByClassName('typewrite');
+            for (let i = 0; i < elements.length; i++) {
+                const toRotate = elements[i].getAttribute('data-type');
+                const period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+        };
+    </script>
+
+<script>
+    // Menu Toggle Functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    const menuLinks = document.querySelectorAll('#menu .links a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            menu.classList.remove('active');
+        });
+    });
+</script>
+</body>
+</html>
