@@ -1,221 +1,381 @@
 <!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Landing - Forty by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+    <title>Skills - Syed Nabeel Hussain</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="The skills and technical expertise of Syed Nabeel Hussain, a Full-Stack Developer specializing in modern web technologies.">
+    <meta name="keywords" content="Syed Nabeel Hussain, Skills, Full-Stack, Elixir, Phoenix, C++, PostgreSQL, Qt, Flutter, UI/UX">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <style>
+        /* CSS Reset and Global Styles (Theme Matched to index.html) */
+        :root {
+            --primary-glow: #00ffc3;
+            --secondary-glow: #00b3ff;
+            --tertiary-glow: #9e00ff;
+            --dark-bg: #10101a;
+            --light-bg: #1a1a2e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0b0;
+            --card-bg: rgba(26, 26, 46, 0.65);
+            --border-color: rgba(0, 255, 195, 0.15);
+            --border-hover: rgba(0, 255, 195, 0.8);
+            --linkedin-color: #00A0DC;
+            --github-color: #C9D1D9;
+        }
 
-				<!-- Header -->
-				<!-- Note: The "styleN" class below should match that of the banner element. -->
-					<header id="header" class="alt style2">
-						<a href="index.html" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: auto; 
+        }
 
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
+        /* Preloader Styles */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--dark-bg); z-index: 10000; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease-out, visibility 0.5s ease-out; }
+        #preloader.loaded { opacity: 0; visibility: hidden; }
+        .spinner { width: 50px; height: 50px; border: 4px solid var(--border-color); border-top-color: var(--primary-glow); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-				<!-- Banner -->
-				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
-						<div class="inner">
-							<span class="image">
-								<img src="images/pic07.jpg" alt="" />
-							</span>
-							<header class="major">
-								<h1>Landing</h1>
-							</header>
-							<div class="content">
-								<p>Lorem ipsum dolor sit amet nullam consequat<br />
-								sed veroeros. tempus adipiscing nulla.</p>
-							</div>
-						</div>
-					</section>
+        /* Aurora and 3D Background */
+        #aurora-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; }
+        .aurora-blob { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; }
+        .aurora-blob:nth-child(1) { width: 500px; height: 500px; background: var(--primary-glow); top: -150px; left: -150px; animation: move-blob-1 25s infinite alternate; }
+        .aurora-blob:nth-child(2) { width: 600px; height: 600px; background: var(--secondary-glow); bottom: -200px; right: -200px; animation: move-blob-2 30s infinite alternate; }
+        .aurora-blob:nth-child(3) { width: 400px; height: 400px; background: var(--tertiary-glow); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: move-blob-3 20s infinite alternate; }
+        @keyframes move-blob-1 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(200px, 100px) scale(1.2); } }
+        @keyframes move-blob-2 { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(-150px, -150px) scale(0.8); } }
+        @keyframes move-blob-3 { 0% { transform: rotate(0deg) scale(1); } 100% { transform: rotate(180deg) scale(1.3); } }
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-				<!-- Main -->
-					<div id="main">
+        /* Custom Cursor */
+        #cursor, #cursor-follower { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; border-radius: 50%; opacity: 0; transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+        #cursor { width: 10px; height: 10px; background-color: var(--primary-glow); }
+        #cursor-follower { width: 40px; height: 40px; border: 2px solid var(--primary-glow); }
+        #cursor-follower.hovered { transform: scale(1.5); background: rgba(0, 255, 195, 0.1); }
 
-						<!-- One -->
-							<section id="one">
-								<div class="inner">
-									<header class="major">
-										<h2>Sed amet aliquam</h2>
-									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
-								</div>
-							</section>
+        /* Wrapper & Header */
+        #wrapper { position: relative; z-index: 2; }
+        #header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(18, 18, 30, 0.4); backdrop-filter: blur(12px); transition: top 0.3s, background-color 0.3s ease, box-shadow 0.3s ease; border-bottom: 1px solid transparent; }
+        #header.scrolled { background: rgba(18, 18, 30, 0.7); border-bottom: 1px solid var(--border-color); box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); text-decoration: none; transition: transform 0.3s ease; }
+        .logo:hover { transform: scale(1.05); }
+        .logo .fa-code { margin-right: 0.5rem; color: var(--primary-glow); text-shadow: 0 0 5px var(--primary-glow); }
+        .logo span { color: var(--primary-glow); text-shadow: 0 0 10px var(--primary-glow); }
+        
+        /* Menu & Toggle */
+        .menu-toggle { position: fixed; top: 1.5rem; right: 3rem; width: 50px; height: 50px; background: var(--card-bg); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1002; transition: all 0.3s ease; backdrop-filter: blur(5px); border: 1px solid var(--border-color); }
+        .menu-toggle:hover { transform: scale(1.1) rotate(90deg); border-color: var(--border-hover); }
+        .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after { content: ''; position: absolute; width: 24px; height: 2px; background: var(--primary-glow); transition: all 0.3s ease; border-radius: 2px; }
+        .menu-toggle span::before { transform: translateY(-8px); }
+        .menu-toggle span::after { transform: translateY(8px); }
+        .menu-toggle.active span { background: transparent; }
+        .menu-toggle.active span::before { transform: rotate(45deg); }
+        .menu-toggle.active span::after { transform: rotate(-45deg); }
+        #menu { position: fixed; top: 0; right: -350px; width: 350px; height: 100vh; background: rgba(20, 20, 35, 0.8); backdrop-filter: blur(15px); padding: 8rem 3rem; z-index: 1001; transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
+        #menu.active { transform: translateX(-350px); }
+        #menu .links { list-style: none; }
+        #menu .links li { margin-bottom: 2rem; opacity: 0; transform: translateX(20px); transition: opacity 0.4s ease, transform 0.4s ease; }
+        #menu.active .links li { opacity: 1; transform: translateX(0); }
+        #menu.active .links li:nth-child(1) { transition-delay: 0.2s; }
+        #menu.active .links li:nth-child(2) { transition-delay: 0.3s; }
+        #menu.active .links li:nth-child(3) { transition-delay: 0.4s; }
+        #menu.active .links li:nth-child(4) { transition-delay: 0.5s; }
+        #menu.active .links li:nth-child(5) { transition-delay: 0.6s; }
+        #menu .links a { color: var(--text-primary); text-decoration: none; font-size: 1.5rem; font-weight: 600; transition: all 0.3s ease; position: relative; padding: 0.5rem 0; }
+        #menu .links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--primary-glow); transition: width 0.3s ease; }
+        #menu .links a:hover { color: var(--primary-glow); }
+        #menu .links a:hover::after { width: 100%; }
+        #menu .links a.active-link { color: var(--primary-glow); }
+        #menu .links a.active-link::after { width: 100%; }
 
-						<!-- Two -->
-							<section id="two" class="spotlights">
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/pic08.jpg" alt="" data-position="center center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Orci maecenas</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/pic09.jpg" alt="" data-position="top center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Rhoncus magna</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/pic10.jpg" alt="" data-position="25% 25%" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Sed nunc ligula</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-							</section>
+        /* General Section & Footer Styles */
+        section { padding: 6em 3em; }
+        #footer { background: var(--dark-bg); padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--border-color); }
+        #footer .inner { max-width: 800px; margin: 0 auto; }
+        #footer .icons { list-style: none; display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+        #footer .icon { color: var(--text-secondary); font-size: 2rem; transition: all 0.3s ease; }
+        #footer .icon:hover { transform: translateY(-5px); }
+        #footer .fa-github:hover { color: var(--github-color); text-shadow: 0 0 15px var(--github-color); }
+        #footer .fa-linkedin-in:hover { color: var(--linkedin-color); text-shadow: 0 0 15px var(--linkedin-color); }
+        #footer .copyright { color: var(--text-secondary); font-size: 0.9rem; }
+        #to-top { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50%; color: var(--primary-glow); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; z-index: 999; opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; backdrop-filter: blur(5px); }
+        #to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        #to-top:hover { background-color: rgba(0, 255, 195, 0.2); transform: scale(1.1); }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+        @media (max-width: 768px) { #cursor, #cursor-follower { display: none; } #header, section { padding-left: 1.5rem; padding-right: 1.5rem; } #header { padding: 1rem; } .menu-toggle { top: 1rem; right: 1rem; } #menu { width: 100%; right: -100%; } #menu.active { transform: translateX(-100%); } }
 
-						<!-- Three -->
-							<section id="three">
-								<div class="inner">
-									<header class="major">
-										<h2>Massa libero</h2>
-									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button next">Get Started</a></li>
-									</ul>
-								</div>
-							</section>
+        /* --- STYLES FOR SKILLS PAGE CONTENT --- */
+        
+        #skills-banner { display: flex; align-items: center; justify-content: center; min-height: 60vh; text-align: center; padding: 10rem 2rem 4rem 2rem; background: linear-gradient(180deg, rgba(16, 16, 26, 0) 0%, var(--dark-bg) 100%); }
+        #skills-banner .inner { max-width: 900px; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s; }
+        body.loaded #skills-banner .inner { opacity: 1; transform: translateY(0); }
+        #skills-banner h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: var(--text-primary); margin-bottom: 0.5rem; }
+        #skills-banner p { font-size: 1.25rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+        #skills-banner .glow { color: var(--primary-glow); text-shadow: 0 0 15px var(--primary-glow); }
 
-					</div>
+        #skills-main { padding-top: 4rem; max-width: 1200px; margin: 0 auto; }
+        
+        .skills-category {
+            margin-bottom: 5rem;
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .skills-category.visible { opacity: 1; transform: translateY(0); }
+        
+        .skills-category h2 { font-family: 'Roboto Mono', monospace; font-size: 2rem; text-align: left; border-bottom: 2px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 2rem; color: var(--text-primary); }
+        .skills-category h2 .fa-solid { margin-right: 1rem; color: var(--primary-glow); }
 
-				<!-- Contact -->
-					<section id="contact">
-						<div class="inner">
-							<section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section>
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; perspective: 1500px; }
+        
+        .skill-panel {
+            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px;
+            padding: 2rem 1.5rem; text-align: center; backdrop-filter: blur(8px);
+            transform-style: preserve-3d; will-change: transform;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .skill-panel:hover { border-color: var(--border-hover); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+        .skill-panel i { font-size: 3rem; color: var(--primary-glow); text-shadow: 0 0 10px var(--primary-glow); margin-bottom: 1rem; display: block; transition: transform 0.4s ease; }
+        .skill-panel:hover i { transform: scale(1.1); }
+        .skill-panel h4 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.2rem; margin: 0; color: var(--text-primary); }
+    </style>
+</head>
+<body class="is-preload">
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+    <div id="preloader"><div class="spinner"></div></div>
+    <div id="aurora-container">
+        <div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div>
+    </div>
+    <canvas id="bg-canvas"></canvas>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+    <a href="#skills-banner" id="to-top" class="magnetic-link"><i class="fas fa-arrow-up"></i></a>
 
-			</div>
+    <div id="wrapper">
+        <header id="header">
+            <a href="index.html" class="logo magnetic-link">
+                <i class="fas fa-code"></i> Syed Nabeel <span>Hussain</span>
+            </a>
+        </header>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        <div class="menu-toggle" id="menuToggle"><span></span></div>
 
-	</body>
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html" class="magnetic-link">Home</a></li>
+                <li><a href="about.html" class="magnetic-link">About</a></li>
+                <li><a href="skills.html" class="magnetic-link active-link">Skills</a></li>
+                <li><a href="projects.html" class="magnetic-link">Projects</a></li>
+                <li><a href="contact.html" class="magnetic-link">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section id="skills-banner">
+            <div class="inner">
+                <header class="major">
+                    <h1>My Skills & <span class="glow">Expertise</span></h1>
+                </header>
+                <div class="content">
+                    <p>The collection of technologies I use to architect, build, and deploy high-quality applications from concept to completion.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div id="main">
+            <section id="skills-main">
+                <div class="skills-category">
+                    <h2><i class="fa-solid fa-code"></i>Languages & Programming</h2>
+                    <div class="skills-grid">
+                        <div class="skill-panel magnetic-link"><i class="fab fa-cuttlefish"></i><h4>C / C++</h4></div>
+                        <div class="skill-panel magnetic-link"><i class="fab fa-js-square"></i><h4>JavaScript (Basic)</h4></div>
+                        <div class="skill-panel magnetic-link"><i class="fab fa-html5"></i><h4>HTML & CSS</h4></div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h2><i class="fa-solid fa-layer-group"></i>Frameworks & Libraries</h2>
+                    <div class="skills-grid">
+                        <div class="skill-panel magnetic-link"><i class="fas fa-feather-alt"></i><h4>Elixir & Phoenix</h4></div>
+                        <div class="skill-panel magnetic-link"><i class="fas fa-desktop"></i><h4>Qt (UI Development)</h4></div>
+                        <div class="skill-panel magnetic-link"><i class="fab fa-fly"></i><h4>Flutter (Beginner)</h4></div>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h2><i class="fa-solid fa-tools"></i>Tools & Platforms</h2>
+                    <div class="skills-grid">
+                        <div class="skill-panel magnetic-link"><i class="fas fa-database"></i><h4>PostgreSQL</h4></div>
+                        <div class="skill-panel magnetic-link"><i class="fab fa-git-alt"></i><h4>Git & GitHub</h4></div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h2><i class="fa-solid fa-brain"></i>Concepts & Methodologies</h2>
+                    <div class="skills-grid">
+                        <div class="skill-panel magnetic-link"><i class="fas fa-drafting-compass"></i><h4>UI/UX Principles</h4></div>
+                        <div class="skill-panel magnetic-link"><i class="fas fa-users"></i><h4>Open Source</h4></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer id="footer">
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://github.com/snabeelshah" class="magnetic-link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px;">
+                    
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px; fill: currentColor;">
+                        <title>GitHub</title>
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.087-.744.084-.73.084-.73 1.205.084 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.492.997.107-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.13-3.18 0 0 1-.322 3.3-.61.94-.26 1.94-.39 2.94-.39 1 0 2 .13 2.94.39 2.3 0 3.3.61 3.3.61.67 1.657.26 2.877.13 3.18.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.81 1.096.81 2.215 0 1.606-.015 2.89-.015 3.28 0 .318.21.69.825.57C20.565 22.18 24 17.6 24 12.297c0-6.627-5.373-12-12-12"></path>
+                    </svg>
+                    <span style="font-size: 18px;">GitHub</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/syed-nabeel-591579324/" class="magnetic-link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px;">
+                    
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px; fill: currentColor;">
+                        <title>LinkedIn</title>
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.139.92-.206 2.063-.206s2.066.926 2.066 2.065c-.001 1.139-.922 2.066-2.066 2.066zm1.788 13.019H3.549V9h3.576v11.452zM22.227 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.456c.981 0 1.773-.773 1.773-1.729V1.729C24 .774 23.209 0 22.227 0z"></path>
+                    </svg>
+                    <span style="font-size: 18px;">LinkedIn</span>
+                </a>
+            </li>
+        </ul>
+        <p class="copyright">&copy; 2025 Syed Nabeel Hussain. All rights reserved.</p>
+    </div>
+</footer>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const preloader = document.getElementById('preloader');
+        window.addEventListener('load', () => {
+            preloader.classList.add('loaded');
+            document.body.classList.add('loaded');
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+        menuToggle.addEventListener('click', function() { this.classList.toggle('active'); menu.classList.toggle('active'); });
+        document.querySelectorAll('#menu .links a').forEach(link => {
+            link.addEventListener('click', () => { menuToggle.classList.remove('active'); menu.classList.remove('active'); });
+        });
+
+        // --- Intersection Observer for Scroll Animations ---
+        // This makes the skill categories fade in as you scroll to them.
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.skills-category').forEach(section => observer.observe(section));
+
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+        const magneticLinks = document.querySelectorAll('.magnetic-link');
+        let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+        document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+        const tick = () => {
+            cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
+            followerX = lerp(followerX, mouseX, 0.1);
+            followerY = lerp(followerY, mouseY, 0.1);
+            follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+            requestAnimationFrame(tick);
+        };
+        tick();
+
+        document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; follower.style.opacity = '1'; });
+        document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; follower.style.opacity = '0'; });
+        
+        magneticLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => follower.classList.add('hovered'));
+            link.addEventListener('mouseleave', () => {
+                follower.classList.remove('hovered');
+                if(!link.classList.contains('skill-panel')) { link.style.transform = ''; }
+            });
+            if(!link.classList.contains('skill-panel')) {
+                 link.addEventListener('mousemove', e => {
+                    const rect = link.getBoundingClientRect();
+                    const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                    link.style.transform = `translate(${(x - rect.width / 2) * 0.15}px, ${(y - rect.height / 2) * 0.15}px)`;
+                });
+            }
+        });
+
+        document.querySelectorAll('.skill-panel').forEach(panel => {
+            panel.addEventListener('mousemove', e => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                const rotateX = (y / rect.height - 0.5) * -25;
+                const rotateY = (x / rect.width - 0.5) * 25;
+                panel.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            });
+            panel.addEventListener('mouseleave', () => {
+                panel.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        });
+
+        const header = document.getElementById('header');
+        const toTopBtn = document.getElementById('to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { header.classList.add('scrolled'); toTopBtn.classList.add('visible'); } 
+            else { header.classList.remove('scrolled'); toTopBtn.classList.remove('visible'); }
+        });
+
+    });
+    </script>
+    
+    <script async src="https://unpkg.com/three@0.125.2/build/three.min.js"></script>
+    <script>
+        let scene, camera, renderer, particles, particleSystem;
+        function init3DBackground() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight); camera.position.z = 50;
+            particles = new THREE.BufferGeometry();
+            const particleCount = 5000; const posArray = new Float32Array(particleCount * 3);
+            for (let i = 0; i < particleCount * 3; i++) { posArray[i] = (Math.random() - 0.5) * 500; }
+            particles.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const material = new THREE.PointsMaterial({ size: 0.05, color: 0x00ffc3, blending: THREE.AdditiveBlending, transparent: true, opacity: 0.8 });
+            particleSystem = new THREE.Points(particles, material); scene.add(particleSystem);
+            animate();
+        }
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1; mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+        function animate() {
+            requestAnimationFrame(animate); particleSystem.rotation.y += 0.0002; particleSystem.rotation.x += 0.0002;
+            if (mouseX !== 0 && mouseY !== 0) {
+                camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+                camera.position.y += (mouseY * 5 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+            }
+            renderer.render(scene, camera);
+        }
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        setTimeout(init3DBackground, 100);
+    </script>
+</body>
 </html>
