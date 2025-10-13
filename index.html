@@ -1,167 +1,354 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-    <title>Syed Nabeel Hussain</title>
+    <title>Syed Nabeel Hussain - Full-Stack Developer</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <meta name="description" content="The portfolio of Syed Nabeel Hussain, a passionate Full-Stack Developer and tech explorer from NED University.">
+    <meta name="keywords" content="Syed Nabeel Hussain, Full-Stack Developer, Web Developer, NED University, Elixir, Phoenix, C++, Portfolio">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-
-        /* Menu Button Styles */
-.menu-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 50px;
-    height: 50px;
-    background: rgba(0, 255, 195, 0.1);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1001;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 255, 195, 0.2);
-}
-
-.menu-toggle:hover {
-    background: rgba(0, 255, 195, 0.2);
-    transform: scale(1.1);
-}
-
-.menu-toggle span {
-    position: relative;
-    width: 24px;
-    height: 2px;
-    background: #00ffc3;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle span::before,
-.menu-toggle span::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: #00ffc3;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle span::before {
-    transform: translateY(-6px);
-}
-
-.menu-toggle span::after {
-    transform: translateY(6px);
-}
-
-/* Active state for menu button */
-.menu-toggle.active span {
-    background: transparent;
-}
-
-.menu-toggle.active span::before {
-    transform: rotate(45deg);
-}
-
-.menu-toggle.active span::after {
-    transform: rotate(-45deg);
-}
-
-/* Menu panel styles */
-#menu {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100vh;
-    background: rgba(30, 30, 47, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 6rem 2rem;
-    z-index: 1000;
-    transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-}
-
-#menu.active {
-    right: 0;
-}
-
-#menu .links {
-    list-style: none;
-    padding: 0;
-}
-
-#menu .links li {
-    margin-bottom: 1.5rem;
-}
-
-#menu .links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    display: block;
-    padding: 0.5rem;
-    border-radius: 4px;
-}
-
-#menu .links a:hover {
-    color: #00ffc3;
-    background: rgba(0, 255, 195, 0.1);
-    transform: translateX(10px);
-}
-        /* Skills Section Styling */
-        #skills {
-            background: #1e1e2f;
-            color: #ffffff;
-            padding: 5em 3em;
-            text-align: center;
+        /* CSS Reset and Global Styles */
+        :root {
+            --primary-glow: #00ffc3;
+            --secondary-glow: #00b3ff;
+            --tertiary-glow: #9e00ff;
+            --dark-bg: #10101a;
+            --light-bg: #1a1a2e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0b0;
+            --card-bg: rgba(26, 26, 46, 0.6);
+            --border-color: rgba(0, 255, 195, 0.15);
+            --border-hover: rgba(0, 255, 195, 0.8);
         }
 
-        #skills h2 {
-            font-size: 2.5em;
-            margin-bottom: 1em;
-            color: #00ffc3;
-            animation: fadeInDown 1.2s ease-in-out;
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        .skill-tags {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* --- UPDATED: Original cursor is now visible --- */
+            cursor: auto; 
+        }
+
+        /* Aurora Background */
+        #aurora-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        .aurora-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+        }
+        .aurora-blob:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: var(--primary-glow);
+            top: -150px;
+            left: -150px;
+            animation: move-blob-1 25s infinite alternate;
+        }
+        .aurora-blob:nth-child(2) {
+            width: 600px;
+            height: 600px;
+            background: var(--secondary-glow);
+            bottom: -200px;
+            right: -200px;
+            animation: move-blob-2 30s infinite alternate;
+        }
+        .aurora-blob:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            background: var(--tertiary-glow);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: move-blob-3 20s infinite alternate;
+        }
+
+        @keyframes move-blob-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(200px, 100px) scale(1.2); }
+        }
+        @keyframes move-blob-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-150px, -150px) scale(0.8); }
+        }
+        @keyframes move-blob-3 {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(180deg) scale(1.3); }
+        }
+
+
+        /* 3D Animated Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* --- UPDATED: Magnetic Follow Cursor CSS --- */
+        /* This setup is for the new JS logic that uses 'transform' */
+        #cursor, #cursor-follower {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 50%;
+            opacity: 0; /* Hidden by default, made visible by JS */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        #cursor {
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-glow);
+            transform: translate(-50%, -50%);
+        }
+        #cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-glow);
+            transform: translate(-50%, -50%);
+        }
+        #cursor.hovered {
+            transform: translate(-50%, -50%) scale(8);
+            background: rgba(0, 255, 195, 0.1);
+        }
+        #cursor-follower.hovered {
+             opacity: 0;
+        }
+
+
+        /* Wrapper & Header */
+        #wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        #header {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1em;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(18, 18, 30, 0.5);
+            backdrop-filter: blur(10px);
+            transition: top 0.3s, background-color 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        #header.scrolled {
+            background: rgba(18, 18, 30, 0.8);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .skill {
-            background-color: #292b3a;
-            padding: 0.75em 1.5em;
-            border-radius: 25px;
-            font-size: 1em;
-            color: #fff;
-            box-shadow: 0 0 10px rgba(0, 255, 195, 0.2);
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
             transition: transform 0.3s ease;
         }
-
-        .skill:hover {
-            transform: scale(1.1);
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        .logo .fa-code {
+            margin-right: 0.5rem;
+            color: var(--primary-glow);
+            text-shadow: 0 0 5px var(--primary-glow);
+        }
+        .logo span {
+            color: var(--primary-glow);
+            text-shadow: 0 0 10px var(--primary-glow);
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Menu Button */
+        .menu-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 3rem;
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1002;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-color);
+        }
+        .menu-toggle:hover {
+            transform: scale(1.1) rotate(90deg);
+            border-color: var(--border-hover);
+        }
+        .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--primary-glow);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .menu-toggle span::before { transform: translateY(-8px); }
+        .menu-toggle span::after { transform: translateY(8px); }
+        .menu-toggle.active span { background: transparent; }
+        .menu-toggle.active span::before { transform: rotate(45deg); }
+        .menu-toggle.active span::after { transform: rotate(-45deg); }
+
+        /* Menu Panel */
+        #menu {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 350px;
+            height: 100vh;
+            background: rgba(20, 20, 35, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 8rem 3rem;
+            z-index: 1001;
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        #menu.active {
+            transform: translateX(-350px);
+        }
+        #menu .links {
+            list-style: none;
+        }
+        #menu .links li {
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        #menu.active .links li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        /* Staggered animation for menu items */
+        #menu.active .links li:nth-child(1) { transition-delay: 0.2s; }
+        #menu.active .links li:nth-child(2) { transition-delay: 0.3s; }
+        #menu.active .links li:nth-child(3) { transition-delay: 0.4s; }
+        #menu.active .links li:nth-child(4) { transition-delay: 0.5s; }
+        #menu.active .links li:nth-child(5) { transition-delay: 0.6s; }
+
+
+        #menu .links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        #menu .links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-glow);
+            transition: width 0.3s ease;
+        }
+        #menu .links a:hover {
+            color: var(--primary-glow);
+        }
+        #menu .links a:hover::after {
+            width: 100%;
         }
 
-        /* Unique Button Styling */
+        /* Hero Section */
+        #banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative; /* For parallax */
+        }
+        #banner .inner {
+            max-width: 800px;
+            /* Parallax effect */
+            transform: translateZ(0); 
+        }
+        #banner h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        #banner .glow-text {
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+        #banner .highlight {
+            color: var(--primary-glow);
+            text-shadow: 0 0 15px var(--primary-glow);
+        }
+        .typewrite > .wrap {
+            border-right: 0.1em solid var(--primary-glow);
+            animation: blink-caret 1s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-glow); }
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            max-width: 720px;
+        }
+        .tagline strong {
+            color: var(--primary-glow);
+            font-weight: 600;
+        }
+        .tagline span {
+            border-bottom: 2px solid var(--secondary-glow);
+        }
+
+        /* Fancy Button Styles */
         .fancy-button {
-            margin-top: 3em;
+            margin-top: 3rem;
             display: inline-block;
-            background: linear-gradient(135deg, #00ffc3 0%, #00b3ff 100%);
-            color: #111;
+            background: linear-gradient(135deg, var(--primary-glow) 0%, var(--secondary-glow) 100%);
+            color: var(--dark-bg);
             font-size: 1.1em;
             font-weight: bold;
             padding: 1em 2em;
@@ -169,186 +356,295 @@
             border-radius: 50px;
             text-decoration: none;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 0 15px rgba(0, 255, 195, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 195, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
-
+        .fancy-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
         .fancy-button:hover {
-            background: linear-gradient(135deg, #00b3ff 0%, #00ffc3 100%);
-            color: #000;
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0, 255, 195, 0.5);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 255, 195, 0.6), 0 0 50px rgba(0, 179, 255, 0.4);
+        }
+        .fancy-button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        /* General Section Styling */
+        section {
+            padding: 6em 3em;
+            border-top: 1px solid var(--border-color);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section h2 {
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 2em;
+            color: var(--primary-glow);
+            text-shadow: 0 0 10px var(--primary-glow);
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        /* --- This is a placeholder for your content on the home page --- */
+        /* --- You might have different sections on other pages --- */
+        #content-placeholder {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #content-placeholder h2 {
+            margin-bottom: 1rem;
+        }
+        #content-placeholder p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
         }
 
-        /* Menu Button Styles */
-.menu-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 50px;
-    height: 50px;
-    background: rgba(0, 255, 195, 0.1);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1001;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 255, 195, 0.2);
-}
 
-.menu-toggle:hover {
-    background: rgba(0, 255, 195, 0.2);
-    transform: scale(1.1);
-}
-
-.menu-toggle span {
-    position: relative;
-    width: 24px;
-    height: 2px;
-    background: #00ffc3;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle span::before,
-.menu-toggle span::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: #00ffc3;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle span::before {
-    transform: translateY(-6px);
-}
-
-.menu-toggle span::after {
-    transform: translateY(6px);
-}
-
-/* Active state for menu button */
-.menu-toggle.active span {
-    background: transparent;
-}
-
-.menu-toggle.active span::before {
-    transform: rotate(45deg);
-}
-
-.menu-toggle.active span::after {
-    transform: rotate(-45deg);
-}
-
-
-        /* Typing animation */
-        .typewrite > .wrap {
-            border-right: 0.08em solid #00ffc3;
-            animation: blink-caret 0.75s step-end infinite;
+        /* Footer */
+        #footer {
+            background: var(--dark-bg);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        #footer .inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #footer .icons {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        #footer .icon {
+            color: var(--text-secondary);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        #footer .icon:hover {
+            color: var(--primary-glow);
+            transform: translateY(-5px);
+            text-shadow: 0 0 15px var(--primary-glow);
+        }
+        #footer .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Scroll to Top button */
+        #to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--primary-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        #to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        #to-top:hover {
+            background-color: rgba(0, 255, 195, 0.2);
+            transform: scale(1.1);
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #00ffc3 }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { cursor: auto; } /* Disable custom cursor on mobile for better UX */
+            #cursor, #cursor-follower { display: none; }
+
+            #header, section {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            #header {
+                padding: 1rem;
+            }
+            .menu-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+            #menu {
+                width: 100%;
+                right: -100%;
+            }
+            #menu.active {
+                transform: translateX(-100%);
+            }
+            section h2 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
-<body class="is-preload dark-theme">
-    <div id="wrapper">
+<body>
+    
+    <div id="aurora-container">
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+    </div>
+    
+    <canvas id="bg-canvas"></canvas>
 
-        <header id="header" class="alt">
-            <a href="index.html" class="logo glow-name">
-                <i class="fas fa-code"></i> Syed Nabeel <span style="color:#00ffc3;">Hussain</span>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+    
+    <a href="#banner" id="to-top" class="magnetic-link"><i class="fas fa-arrow-up"></i></a>
+
+
+    <div id="wrapper">
+        <header id="header">
+            <a href="index.html" class="logo magnetic-link">
+                <i class="fas fa-code"></i> Syed Nabeel <span>Hussain</span>
             </a>
-            
         </header>
 
-        <!-- Menu Button -->
-<div class="menu-toggle" id="menuToggle">
-    <span></span>
-</div>
-
-<!-- Menu Panel -->
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+        </div>
 
         <nav id="menu">
             <ul class="links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html" class="magnetic-link">Home</a></li>
+                <li><a href="about.html" class="magnetic-link">About</a></li>
+                <li><a href="skills.html" class="magnetic-link">Skills</a></li>
+                <li><a href="projects.html" class="magnetic-link">Projects</a></li>
+                <li><a href="contact.html" class="magnetic-link">Contact</a></li>
             </ul>
         </nav>
 
-        <!-- Hero Section with Typing Animation -->
         <section id="banner" class="major">
             <div class="inner">
                 <header class="major">
-                    <h1 style="font-size: 2.8em; line-height: 1.3em;">
-                        <span class="glow-text" style="font-weight: 300;">Hi, I'm</span><br />
+                    <h1>
+                        <span class="glow-text">Hi, I'm</span><br />
                         <span class="highlight typewrite" data-period="2000" data-type='[ "Syed Nabeel Hussain", "a Full-Stack Developer", "a Tech Explorer @ NED University" ]'>
                             <span class="wrap"></span>
                         </span>
                     </h1>
                 </header>
                 <div class="content">
-                    <p class="tagline animated fadeInUp" style="font-size: 1.25em; color: #ccc; max-width: 720px; margin: 0 auto;">
-                        Passionate about building <strong style="color:#00ffc3;">clean code</strong>, intuitive <strong>UI/UX</strong>, and <span style="border-bottom: 2px solid #00ffc3;">solving real-world problems</span> through innovation.
+                    <p class="tagline">
+                        Passionate about building <strong>clean code</strong>, intuitive <strong>UI/UX</strong>, and <span>solving real-world problems</span> through innovation.
                     </p>
-                    <ul class="actions stacked" style="margin-top: 2em;">
+                    <ul class="actions stacked">
                         <li>
-                            <a href="#skills" class="fancy-button smooth" style="font-size: 1.1em; text-transform: uppercase;">
+                            <a href="skills.html" class="fancy-button magnetic-link">
                                 🔍 Explore My Skills
                             </a>
                         </li>
                     </ul>
-                    
                 </div>
             </div>
         </section>
-
-        <!-- Skills Section with Animated Button -->
-        <section id="skills">
-            <h2>My Skills</h2>
-            <div class="skill-tags">
-                <div class="skill">C / C++</div>
-                <div class="skill">Flutter (Beginner)</div>
-                <div class="skill">HTML & CSS</div>
-                <div class="skill">GitHub & Git</div>
-                <div class="skill">Qt (UI Development)</div>
-                <div class="skill">PostgreSQL</div>
-                <div class="skill">Elixir & Phoenix</div>
-                <div class="skill">JavaScript (Basic)</div>
-                <div class="skill">UI/UX Design Principles</div>
-                <div class="skill">Open Source Collaboration</div>
-            </div>
-            <a href="projects.html" class="fancy-button">Explore My Projects 🚀</a>
+        
+        <section id="content-placeholder">
+            <h2 data-scramble-text="Welcome">Welcome</h2>
+            <p>This is the central hub for my digital creations. Explore my projects, learn more about my skills, and feel free to get in touch for collaboration.</p>
+            <a href="projects.html" class="fancy-button magnetic-link">
+                View My Work 🚀
+            </a>
         </section>
 
         <footer id="footer">
-            <div class="inner">
-                <ul class="icons">
-                    <li><a href="https://github.com/snabeelshah" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-                    <li><a href="https://www.linkedin.com/in/syed-nabeel-591579324/" class="icon brands alt fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; 2025 Syed Nabeel Hussain</li>
-                </ul>
-            </div>
-        </footer>
-
+    <div class="inner">
+        <ul class="icons">
+            <li>
+                <a href="https://github.com/snabeelshah" class="magnetic-link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px;">
+                    
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px; fill: currentColor;">
+                        <title>GitHub</title>
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.087-.744.084-.73.084-.73 1.205.084 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.492.997.107-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.13-3.18 0 0 1-.322 3.3-.61.94-.26 1.94-.39 2.94-.39 1 0 2 .13 2.94.39 2.3 0 3.3.61 3.3.61.67 1.657.26 2.877.13 3.18.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.81 1.096.81 2.215 0 1.606-.015 2.89-.015 3.28 0 .318.21.69.825.57C20.565 22.18 24 17.6 24 12.297c0-6.627-5.373-12-12-12"></path>
+                    </svg>
+                    <span style="font-size: 18px;">GitHub</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/syed-nabeel-591579324/" class="magnetic-link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px;">
+                    
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px; fill: currentColor;">
+                        <title>LinkedIn</title>
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.139.92-.206 2.063-.206s2.066.926 2.066 2.065c-.001 1.139-.922 2.066-2.066 2.066zm1.788 13.019H3.549V9h3.576v11.452zM22.227 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.456c.981 0 1.773-.773 1.773-1.729V1.729C24 .774 23.209 0 22.227 0z"></path>
+                    </svg>
+                    <span style="font-size: 18px;">LinkedIn</span>
+                </a>
+            </li>
+        </ul>
+        <p class="copyright">&copy; 2025 Syed Nabeel Hussain. All rights reserved.</p>
+    </div>
+</footer>
     </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-    <!-- Typing Animation Script -->
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Menu Toggle Functionality ---
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+        
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+        
+        // --- Hide menu when a link is clicked ---
+        document.querySelectorAll('#menu .links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                menu.classList.remove('active');
+            });
+        });
+
+        // --- Typing Animation ---
         class TxtType {
             constructor(el, toRotate, period) {
                 this.toRotate = toRotate;
@@ -356,27 +652,16 @@
                 this.loopNum = 0;
                 this.period = parseInt(period, 10) || 2000;
                 this.txt = '';
-                this.tick();
                 this.isDeleting = false;
+                this.tick();
             }
-
             tick() {
                 let i = this.loopNum % this.toRotate.length;
                 let fullTxt = this.toRotate[i];
-
-                if (this.isDeleting) {
-                    this.txt = fullTxt.substring(0, this.txt.length - 1);
-                } else {
-                    this.txt = fullTxt.substring(0, this.txt.length + 1);
-                }
-
-                this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-                let that = this;
+                this.txt = this.isDeleting ? fullTxt.substring(0, this.txt.length - 1) : fullTxt.substring(0, this.txt.length + 1);
+                this.el.innerHTML = `<span class="wrap">${this.txt}</span>`;
                 let delta = 150 - Math.random() * 100;
-
                 if (this.isDeleting) { delta /= 2; }
-
                 if (!this.isDeleting && this.txt === fullTxt) {
                     delta = this.period;
                     this.isDeleting = true;
@@ -385,43 +670,192 @@
                     this.loopNum++;
                     delta = 500;
                 }
-
-                setTimeout(function () {
-                    that.tick();
-                }, delta);
+                setTimeout(() => this.tick(), delta);
             }
         }
 
-        window.onload = function () {
-            const elements = document.getElementsByClassName('typewrite');
-            for (let i = 0; i < elements.length; i++) {
-                const toRotate = elements[i].getAttribute('data-type');
-                const period = elements[i].getAttribute('data-period');
-                if (toRotate) {
-                    new TxtType(elements[i], JSON.parse(toRotate), period);
-                }
+        const typewriteElements = document.getElementsByClassName('typewrite');
+        for (let i = 0; i < typewriteElements.length; i++) {
+            const toRotate = typewriteElements[i].getAttribute('data-type');
+            const period = typewriteElements[i].getAttribute('data-period');
+            if (toRotate) {
+                new TxtType(typewriteElements[i], JSON.parse(toRotate), period);
             }
-        };
-    </script>
+        }
+        
+        // --- Text Scramble Effect ---
+        class TextScramble {
+            constructor(el) { this.el = el; this.chars = '!<>-_\\/[]{}—=+*^?#________'; this.update = this.update.bind(this); }
+            setText(newText) {
+                const oldText = this.el.innerText; const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise((resolve) => this.resolve = resolve); this.queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || ''; const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40); const end = start + Math.floor(Math.random() * 40);
+                    this.queue.push({ from, to, start, end });
+                }
+                cancelAnimationFrame(this.frameRequest); this.frame = 0; this.update(); return promise;
+            }
+            update() {
+                let output = ''; let complete = 0;
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+                    if (this.frame >= end) { complete++; output += to; } 
+                    else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) { char = this.randomChar(); this.queue[i].char = char; }
+                        output += `<span class="dud">${char}</span>`;
+                    } else { output += from; }
+                }
+                this.el.innerHTML = output;
+                if (complete === this.queue.length) { this.resolve(); } 
+                else { this.frameRequest = requestAnimationFrame(this.update); this.frame++; }
+            }
+            randomChar() { return this.chars[Math.floor(Math.random() * this.chars.length)]; }
+        }
 
-<script>
-    // Menu Toggle Functionality
-    const menuToggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('menu');
-    
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        menu.classList.toggle('active');
-    });
-    
-    // Close menu when clicking on a link
-    const menuLinks = document.querySelectorAll('#menu .links a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            menuToggle.classList.remove('active');
-            menu.classList.remove('active');
+        // --- Scroll-Triggered Animations ---
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const h2 = entry.target.querySelector('[data-scramble-text]');
+                    if (h2 && !h2.dataset.scrambled) {
+                        const fx = new TextScramble(h2); fx.setText(h2.getAttribute('data-scramble-text'));
+                        h2.dataset.scrambled = "true";
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        sections.forEach(section => observer.observe(section));
+
+        // --- FIXED: New, smoother, and more reliable cursor logic ---
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+        const magneticLinks = document.querySelectorAll('.magnetic-link');
+        
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
+
+        const tick = () => {
+            // Instant movement for the main dot
+            cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            
+            // Smoothed movement for the follower using linear interpolation
+            const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
+            followerX = lerp(followerX, mouseX, 0.1);
+            followerY = lerp(followerY, mouseY, 0.1);
+            
+            follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+            
+            requestAnimationFrame(tick);
+        };
+        tick();
+
+        // Show/hide cursor on entering/leaving the window
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            follower.style.opacity = '1';
+        });
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            follower.style.opacity = '0';
+        });
+        
+        magneticLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.classList.add('hovered');
+                follower.classList.add('hovered');
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hovered');
+                follower.classList.remove('hovered');
+                link.style.transform = '';
+            });
+            link.addEventListener('mousemove', e => {
+                const rect = link.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                link.style.transform = `translate(${(x - rect.width / 2) * 0.15}px, ${(y - rect.height / 2) * 0.15}px)`;
+            });
+        });
+
+        // --- Header Scroll & Scroll-to-Top Button Logic ---
+        const header = document.getElementById('header');
+        const toTopBtn = document.getElementById('to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                toTopBtn.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                toTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // --- Parallax for Hero Section ---
+        const bannerInner = document.querySelector('#banner .inner');
+        window.addEventListener('scroll', () => {
+            const offset = window.pageYOffset;
+            bannerInner.style.transform = `translateY(${offset * 0.3}px)`;
+        });
+
     });
-</script>
+    </script>
+    
+    <script async src="https://unpkg.com/three@0.125.2/build/three.min.js"></script>
+    <script>
+        // --- 3D Animated Background ---
+        let scene, camera, renderer, particles, particleSystem;
+        function init3DBackground() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.position.z = 50;
+            particles = new THREE.BufferGeometry();
+            const particleCount = 5000;
+            const posArray = new Float32Array(particleCount * 3);
+            for (let i = 0; i < particleCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 500;
+            }
+            particles.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const material = new THREE.PointsMaterial({
+                size: 0.05, color: 0x00ffc3, blending: THREE.AdditiveBlending,
+                transparent: true, opacity: 0.8
+            });
+            particleSystem = new THREE.Points(particles, material);
+            scene.add(particleSystem);
+            animate();
+        }
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+        function animate() {
+            requestAnimationFrame(animate);
+            particleSystem.rotation.y += 0.0002;
+            particleSystem.rotation.x += 0.0002;
+            if (mouseX !== 0 && mouseY !== 0) {
+                camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+                camera.position.y += (mouseY * 5 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+            }
+            renderer.render(scene, camera);
+        }
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        setTimeout(init3DBackground, 100);
+    </script>
 </body>
 </html>
